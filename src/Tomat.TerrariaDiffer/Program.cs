@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using DotnetPatcher.Decompile;
 using DotnetPatcher.Diff;
 using DotnetPatcher.Patch;
@@ -62,10 +61,9 @@ internal static class Program {
             var password = Console.ReadLine()!;
 
             File.WriteAllText("filelist.txt", "regex:" + file_exclusion_regex);
-            var depotDownloaderAsm = typeof(DepotDownloader.PlatformUtilities).Assembly;
-            DownloadManifest(depotDownloaderAsm, username, password, terraria_release);
-            DownloadManifest(depotDownloaderAsm, username, password, terraria_linux);
-            DownloadManifest(depotDownloaderAsm, username, password, terraria_mac);
+            DownloadManifest(username, password, terraria_release);
+            DownloadManifest(username, password, terraria_linux);
+            DownloadManifest(username, password, terraria_mac);
         }
 
         DecompileAndDiffDepotNodes(patch_configuration);
@@ -77,39 +75,28 @@ internal static class Program {
             PatchModNodes(patch_configuration);
     }
 
-    private static void NullifyInstance(Type type) {
-        var instanceField = type.GetField("Instance", BindingFlags.Static | BindingFlags.Public);
-        instanceField!.SetValue(null, null);
-    }
-
-    private static void DownloadManifest(Assembly depotDownloaderAssembly, string username, string password, Manifest manifest) {
-        NullifyInstance(depotDownloaderAssembly.GetType("DepotDownloader.AccountSettingsStore")!);
-        NullifyInstance(depotDownloaderAssembly.GetType("DepotDownloader.DepotConfigStore")!);
-
+    private static void DownloadManifest(string username, string password, Manifest manifest) {
         var appId = game.AppId;
         var depot = manifest.DepotId;
 
         if (Directory.Exists(manifest.Name))
             Directory.Delete(manifest.Name, true);
 
-        depotDownloaderAssembly.EntryPoint!.Invoke(
-            null,
-            new object[] {
-                new[] {
-                    "-app",
-                    appId.ToString(),
-                    "-depot",
-                    depot.ToString(),
-                    "-filelist",
-                    "filelist.txt",
-                    "-username",
-                    username,
-                    "-password",
-                    password,
-                    "-dir",
-                    Path.Combine("downloads", manifest.Name),
-                    //"-remember-password",
-                },
+        DepotDownloader.Program.Main(
+            new[] {
+                "-app",
+                appId.ToString(),
+                "-depot",
+                depot.ToString(),
+                "-filelist",
+                "filelist.txt",
+                "-username",
+                username,
+                "-password",
+                password,
+                "-dir",
+                Path.Combine("downloads", manifest.Name),
+                //"-remember-password",
             }
         );
     }
