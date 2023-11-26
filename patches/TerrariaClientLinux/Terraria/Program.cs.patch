@@ -1,0 +1,14 @@
+--- decompiled/TerrariaClientWindows/Terraria/Program.cs
++++ decompiled/TerrariaClientLinux/Terraria/Program.cs
+@@ -18,9 +_,9 @@
+ 
+ public static class Program
+ {
+-	public static bool IsXna = true;
++	public static bool IsXna = false;
+ 
+-	public static bool IsFna = false;
++	public static bool IsFna = true;
+ 
+ 	public static bool IsMono = Type.GetType("Mono.Runtime") != null;
+ 

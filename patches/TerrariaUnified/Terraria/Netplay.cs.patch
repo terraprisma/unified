@@ -1,0 +1,66 @@
+--- decompiled/TerrariaBuildable/Terraria/Netplay.cs
++++ decompiled/TerrariaUnified/Terraria/Netplay.cs
+@@ -4,6 +_,7 @@
+ using System.Net;
+ using System.Net.Sockets;
+ using System.Threading;
++using NATUPNPLib;
+ using ReLogic.OS;
+ using Terraria.Audio;
+ using Terraria.Localization;
+@@ -60,6 +_,10 @@
+ 
+ 	private static Thread _serverThread;
+ 
++	private static UPnPNAT _upnpnat;
++
++	private static IStaticPortMappingCollection _mappings;
++
+ 	public static MessageBuffer fullBuffer = new MessageBuffer();
+ 
+ 	private static int _currentRequestId;
+@@ -136,10 +_,44 @@
+ 
+ 	private static void OpenPort(int port)
+ 	{
++		if (!Main.dedServ || !Platform.IsWindows)
++			return;
++		string localIPAddress = GetLocalIPAddress();
++		if (_upnpnat == null) {
++			_upnpnat = (UPnPNAT)Activator.CreateInstance(Type.GetTypeFromCLSID(new Guid("AE1E00AA-3FD5-403C-8A27-2BBDC30CD0E1")));
++			_mappings = _upnpnat.StaticPortMappingCollection;
++		}
++		if (_mappings == null) {
++			return;
++		}
++		bool flag = false;
++		foreach (IStaticPortMapping mapping in _mappings) {
++			if (mapping.InternalPort == port && mapping.InternalClient == localIPAddress && mapping.Protocol == "TCP") {
++				flag = true;
++			}
++		}
++		if (!flag) {
++			_mappings.Add(port, "TCP", port, localIPAddress, bEnabled: true, "Terraria Server");
++		}
+ 	}
+ 
+ 	private static void ClosePort(int port)
+ 	{
++		if (!Main.dedServ || !Platform.IsWindows)
++			return;
++		string localIPAddress = GetLocalIPAddress();
++		bool flag = false;
++		if (_mappings == null) {
++			return;
++		}
++		foreach (IStaticPortMapping mapping in _mappings) {
++			if (mapping.InternalPort == port && mapping.InternalClient == localIPAddress && mapping.Protocol == "TCP") {
++				flag = true;
++			}
++		}
++		if (!flag) {
++			_mappings.Remove(port, "TCP");
++		}
+ 	}
+ 
+ 	private static void ServerFullWriteCallBack(object state)

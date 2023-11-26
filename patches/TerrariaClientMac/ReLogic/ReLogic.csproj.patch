@@ -1,0 +1,23 @@
+--- decompiled/TerrariaClientWindows/ReLogic/ReLogic.csproj
++++ decompiled/TerrariaClientMac/ReLogic/ReLogic.csproj
+@@ -9,10 +_,8 @@
+     <RootNamespace>ReLogic</RootNamespace>
+   </PropertyGroup>
+   <ItemGroup>
++    <Reference Include="FNA" />
+     <Reference Include="Ionic.Zip.CF" />
+-    <Reference Include="Microsoft.Xna.Framework" />
+-    <Reference Include="Microsoft.Xna.Framework.Game" />
+-    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+     <Reference Include="Newtonsoft.Json" />
+     <Reference Include="SteelSeriesEngineWrapper" />
+     <Reference Include="System" />
+@@ -20,7 +_,5 @@
+     <Reference Include="System.Drawing" />
+     <Reference Include="System.Windows.Forms" />
+   </ItemGroup>
+-  <ItemGroup>
+-    <EmbeddedResource Include="Microsoft/**" />
+-  </ItemGroup>
++  <ItemGroup />
+ </Project>

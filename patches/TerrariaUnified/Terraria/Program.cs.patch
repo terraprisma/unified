@@ -1,0 +1,62 @@
+--- decompiled/TerrariaBuildable/Terraria/Program.cs
++++ decompiled/TerrariaUnified/Terraria/Program.cs
+@@ -6,9 +_,9 @@
+ using System.Runtime.CompilerServices;
+ using System.Text;
+ using System.Threading;
+-using System.Windows.Forms;
+ using ReLogic.IO;
+ using ReLogic.OS;
++using SDL2;
+ using Terraria.Initializers;
+ using Terraria.Localization;
+ using Terraria.Social;
+@@ -18,11 +_,11 @@
+ 
+ public static class Program
+ {
+-	public static bool IsXna = true;
++	public const bool IsXna = false;
+ 
+-	public static bool IsFna = false;
++	public const bool IsFna = true;
+ 
+-	public static bool IsMono = Type.GetType("Mono.Runtime") != null;
++	public const bool IsMono = false;
+ 
+ 	public const bool IsDebug = false;
+ 
+@@ -137,9 +_,11 @@
+ 
+ 	private static void InitializeConsoleOutput()
+ 	{
++		/*
+ 		if (Debugger.IsAttached) {
+ 			return;
+ 		}
++		*/
+ 		try {
+ 			Console.OutputEncoding = Encoding.UTF8;
+ 			if (Platform.IsWindows) {
+@@ -161,8 +_,10 @@
+ 			TrySettingFNAToOpenGL(args);
+ 		}
+ 		LaunchParameters = Utils.ParseArguements(args);
++		WindowsLaunch.InitializeWithParsedArguments(LaunchParameters);
+ 		SavePath = (LaunchParameters.ContainsKey("-savedirectory") ? LaunchParameters["-savedirectory"] : Platform.Get<IPathService>().GetStoragePath("Terraria"));
+ 		ThreadPool.SetMinThreads(8, 8);
++		Main.dedServ = LaunchParameters.ContainsKey("-server");
+ 		InitializeConsoleOutput();
+ 		SetupLogging();
+ 		Platform.Get<IWindowService>().SetQuickEditEnabled(enabled: false);
+@@ -224,7 +_,10 @@
+ 			if (Main.dedServ) {
+ 				Console.WriteLine(Language.GetTextValue("Error.ServerCrash"), DateTime.Now, text);
+ 			}
++			/*
+ 			MessageBox.Show(text, "Terraria: Error");
++			*/
++			SDL.SDL_ShowSimpleMessageBox(SDL.SDL_MessageBoxFlags.SDL_MESSAGEBOX_ERROR, "Terraria: Error", text, IntPtr.Zero);
+ 		} catch {
+ 		}
+ 	}

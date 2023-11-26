@@ -1,0 +1,44 @@
+--- decompiled/TerrariaBuildable/Terraria/Localization/LanguageManager.cs
++++ decompiled/TerrariaUnified/Terraria/Localization/LanguageManager.cs
+@@ -1,12 +_,14 @@
+ using System;
+ using System.Collections.Generic;
+ using System.Diagnostics;
++using System.Globalization;
+ using System.IO;
+ using System.Linq;
+ using System.Reflection;
+ using System.Text.RegularExpressions;
+ using System.Threading;
+ using CsvHelper;
++using CsvHelper.Configuration;
+ using Newtonsoft.Json;
+ using ReLogic.Content.Sources;
+ using ReLogic.Graphics;
+@@ -186,12 +_,13 @@
+ 	public void LoadLanguageFromFileTextCsv(string fileText)
+ 	{
+ 		using TextReader reader = new StringReader(fileText);
+-		using CsvReader csvReader = new CsvReader(reader);
+-		csvReader.Configuration.HasHeaderRecord = true;
++		using CsvReader csvReader = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = true });
+ 		if (!csvReader.ReadHeader()) {
+ 			return;
+ 		}
+-		string[] fieldHeaders = csvReader.FieldHeaders;
++		string[] fieldHeaders = new string[csvReader.Parser.Count];
++		for (int i = 0; i < fieldHeaders.Length; i++)
++			fieldHeaders[i] = csvReader.Parser[i];
+ 		int num = -1;
+ 		int num2 = -1;
+ 		for (int i = 0; i < fieldHeaders.Length; i++) {
+@@ -207,8 +_,7 @@
+ 			return;
+ 		}
+ 		int num3 = Math.Max(num, num2) + 1;
+-		while (csvReader.Read()) {
+-			string[] currentRecord = csvReader.CurrentRecord;
++		foreach (string[] currentRecord in csvReader.GetRecords<string[]>())  {
+ 			if (currentRecord.Length >= num3) {
+ 				string text2 = currentRecord[num];
+ 				string value = currentRecord[num2];

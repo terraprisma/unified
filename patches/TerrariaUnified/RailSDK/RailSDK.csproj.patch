@@ -1,0 +1,11 @@
+--- decompiled/TerrariaBuildable/RailSDK/RailSDK.csproj
++++ decompiled/TerrariaUnified/RailSDK/RailSDK.csproj
+@@ -6,7 +_,7 @@
+         <Version>1.0.0.0</Version>
+         <Company>Copyright © 2018</Company>
+         <RootNamespace>RailSDK.Net</RootNamespace>
+-        <TargetFramework>net40</TargetFramework>
++        <TargetFramework>net8.0</TargetFramework>
+         <LangVersion>latest</LangVersion>
+     </PropertyGroup>
+ 

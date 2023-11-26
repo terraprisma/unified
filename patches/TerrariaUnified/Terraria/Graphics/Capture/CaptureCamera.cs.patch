@@ -1,0 +1,73 @@
+--- decompiled/TerrariaBuildable/Terraria/Graphics/Capture/CaptureCamera.cs
++++ decompiled/TerrariaUnified/Terraria/Graphics/Capture/CaptureCamera.cs
+@@ -1,7 +_,6 @@
+ using System;
+ using System.Collections.Generic;
+ using System.Drawing;
+-using System.Drawing.Imaging;
+ using System.IO;
+ using System.Runtime.InteropServices;
+ using System.Threading;
+@@ -16,6 +_,11 @@
+ 
+ internal class CaptureCamera : IDisposable
+ {
++	public enum ImageFormat
++	{
++		Png
++	}
++
+ 	private class CaptureChunk
+ 	{
+ 		public readonly Microsoft.Xna.Framework.Rectangle Area;
+@@ -224,6 +_,9 @@
+ 			return false;
+ 		}
+ 		try {
++			using FileStream stream = File.Create(filename);
++			PlatformUtilities.SavePng(stream, width, height, width, height, _outputData);
++			/*
+ 			if (!Platform.IsWindows) {
+ 				using FileStream stream = File.Create(filename);
+ 				PlatformUtilities.SavePng(stream, width, height, width, height, _outputData);
+@@ -237,6 +_,7 @@
+ 				bitmap.Save(filename, imageFormat);
+ 				bitmap.Dispose();
+ 			}
++			*/
+ 			return true;
+ 		} catch (Exception value) {
+ 			Console.WriteLine(value);
+@@ -251,6 +_,24 @@
+ 		if (!Utils.TryCreatingDirectory(text)) {
+ 			return;
+ 		}
++		int elementCount = texture.Width * texture.Height * 4;
++		texture.GetData(_outputData, 0, elementCount);
++		int num = 0;
++		int num2 = 0;
++		for (int i = 0; i < height; i++) {
++			for (int j = 0; j < width; j++) {
++				_outputData[num2] = _outputData[num];
++				_outputData[num2 + 1] = _outputData[num + 1];
++				_outputData[num2 + 2] = _outputData[num + 2];
++				_outputData[num2 + 3] = _outputData[num + 3];
++				num += 4;
++				num2 += 4;
++			}
++			num += texture.Width - width << 2;
++		}
++		using FileStream stream = File.Create(text2);
++		PlatformUtilities.SavePng(stream, width, height, width, height, _outputData);
++		/*
+ 		if (!Platform.IsWindows) {
+ 			int elementCount = texture.Width * texture.Height * 4;
+ 			texture.GetData(_outputData, 0, elementCount);
+@@ -294,6 +_,7 @@
+ 		Marshal.Copy(_outputData, 0, scan, width * height * 4);
+ 		bitmap.UnlockBits(bitmapData);
+ 		bitmap.Save(text2, imageFormat);
++		*/
+ 	}
+ 
+ 	private void FinishCapture()

@@ -1,0 +1,29 @@
+--- decompiled/TerrariaBuildable/ReLogic/OS/Windows/Clipboard.cs
++++ decompiled/TerrariaUnified/ReLogic/OS/Windows/Clipboard.cs
+@@ -1,7 +_,6 @@
+ using System;
+ using System.Threading;
+-using System.Windows.Forms;
+-using ReLogic.OS.Base;
++using SDL2;
+ 
+ namespace ReLogic.OS.Windows;
+ 
+@@ -19,7 +_,7 @@
+ 		}
+ 		try {
+ 			InvokeInStaThread(delegate {
+-				System.Windows.Forms.Clipboard.SetText(text);
++				SDL.SDL_SetClipboardText(text);
+ 			});
+ 		} catch {
+ 			Console.WriteLine("Failed to set clipboard contents!");
+@@ -30,7 +_,7 @@
+ 	{
+ 		string result;
+ 		try {
+-			result = InvokeInStaThread(() => System.Windows.Forms.Clipboard.GetText());
++			result = InvokeInStaThread(SDL.SDL_GetClipboardText);
+ 		} catch {
+ 			result = "";
+ 			Console.WriteLine("Failed to get clipboard contents!");

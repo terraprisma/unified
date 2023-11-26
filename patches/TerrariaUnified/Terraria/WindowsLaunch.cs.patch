@@ -1,0 +1,30 @@
+--- decompiled/TerrariaBuildable/Terraria/WindowsLaunch.cs
++++ decompiled/TerrariaUnified/Terraria/WindowsLaunch.cs
+@@ -1,12 +_,9 @@
+-using System;
+-using System.IO;
+-using System.Reflection;
+ using System.Runtime.InteropServices;
+ using Terraria.Social;
+ 
+ namespace Terraria;
+ 
+-public static class WindowsLaunch
++public static partial class WindowsLaunch
+ {
+ 	public delegate bool HandlerRoutine(CtrlTypes ctrlType);
+ 
+@@ -48,6 +_,7 @@
+ 	[DllImport("Kernel32")]
+ 	public static extern bool SetConsoleCtrlHandler(HandlerRoutine handler, bool add);
+ 
++	/*
+ 	[STAThread]
+ 	private static void Main(string[] args)
+ 	{
+@@ -64,4 +_,5 @@
+ 		};
+ 		Program.LaunchGame(args);
+ 	}
++	*/
+ }

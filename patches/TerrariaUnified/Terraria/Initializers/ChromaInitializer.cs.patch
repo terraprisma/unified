@@ -1,0 +1,52 @@
+--- decompiled/TerrariaBuildable/Terraria/Initializers/ChromaInitializer.cs
++++ decompiled/TerrariaUnified/Terraria/Initializers/ChromaInitializer.cs
+@@ -2,10 +_,8 @@
+ using System.Collections.Generic;
+ using System.Diagnostics;
+ using System.Linq;
+-using System.Windows.Forms;
+ using Microsoft.Xna.Framework;
+ using ReLogic.Graphics;
+-using ReLogic.OS;
+ using ReLogic.Peripherals.RGB;
+ using ReLogic.Peripherals.RGB.Corsair;
+ using ReLogic.Peripherals.RGB.Logitech;
+@@ -524,9 +_,11 @@
+ 		}
+ 		LoadSpecialRulesForDevices();
+ 		AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
++		/*
+ 		if (Platform.IsWindows) {
+ 			Application.ApplicationExit += OnProcessExit;
+ 		}
++		*/
+ 	}
+ 
+ 	private static void LoadSpecialRulesForDevices()
+@@ -545,6 +_,8 @@
+ 
+ 	public static void UpdateEvents()
+ 	{
++		if (Main.dedServ)
++			return;
+ 		if (Main.gameMenu) {
+ 			Event_LifePercent.Update(0, isVisible: false);
+ 			Event_ManaPercent.Update(0, isVisible: false);
+@@ -643,6 +_,8 @@
+ 
+ 	public static void DisableAllDeviceGroups()
+ 	{
++		if (Main.dedServ)
++			return;
+ 		if (_engine != null) {
+ 			_engine.DisableAllDeviceGroups();
+ 		}
+@@ -656,6 +_,8 @@
+ 	public static void Load()
+ 	{
+ 		_engine = Main.Chroma;
++		if (Main.dedServ)
++			return;
+ 		AddDevices();
+ 		Color color = new Color(46, 23, 12);
+ 		RegisterShader("Base", new SurfaceBiomeShader(Color.Green, color), CommonConditions.InMenu, ShaderLayer.Menu);

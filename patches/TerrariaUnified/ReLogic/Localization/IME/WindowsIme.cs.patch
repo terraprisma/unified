@@ -1,0 +1,10 @@
+--- decompiled/TerrariaBuildable/ReLogic/Localization/IME/WindowsIme.cs
++++ decompiled/TerrariaUnified/ReLogic/Localization/IME/WindowsIme.cs
+@@ -1,7 +_,5 @@
+ using System;
+ using System.Runtime.InteropServices;
+-using System.Windows.Forms;
+-using ReLogic.Localization.IME.Windows;
+ using ReLogic.OS.Windows;
+ 
+ namespace ReLogic.Localization.IME;

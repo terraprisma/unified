@@ -1,0 +1,25 @@
+--- decompiled/TerrariaBuildable/ReLogic/OS/Platform.cs
++++ decompiled/TerrariaUnified/ReLogic/OS/Platform.cs
+@@ -1,4 +_,7 @@
+ using System;
++using System.Runtime.InteropServices;
++using ReLogic.OS.Linux;
++using ReLogic.OS.OSX;
+ using ReLogic.OS.Windows;
+ using ReLogic.Utilities;
+ 
+@@ -6,7 +_,13 @@
+ 
+ public abstract class Platform : IDisposable
+ {
+-	public static readonly Platform Current = new WindowsPlatform();
++	public static readonly Platform Current = OperatingSystem.IsWindows()
++		? new WindowsPlatform()
++		: OperatingSystem.IsMacOS()
++			? new OsxPlatform()
++			: OperatingSystem.IsLinux()
++				? new LinuxPlatform()
++				: throw new PlatformNotSupportedException("This platform is not supported.");
+ 
+ 	public readonly PlatformType Type;
+ 

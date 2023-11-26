@@ -1,0 +1,46 @@
+--- decompiled/TerrariaBuildable/ReLogic/Threading/FastParallel.cs
++++ decompiled/TerrariaUnified/ReLogic/Threading/FastParallel.cs
+@@ -28,10 +_,19 @@
+ 
+ 		public void Invoke()
+ 		{
++			/*
+ 			if (_fromInclusive != _toExclusive) {
+ 				_action(_fromInclusive, _toExclusive, _context);
+ 			}
+ 			_countdown.Signal();
++			*/
++
++			try {
++				if (_fromInclusive != _toExclusive)
++					_action(_fromInclusive, _toExclusive, _context);
++			} finally {
++				_countdown.Signal();
++			}
+ 		}
+ 	}
+ 
+@@ -52,8 +_,10 @@
+ 		if (ForceTasksOnCallingThread) {
+ 			num2 = 1;
+ 		}
++		/*
+ 		ThreadPriority priority = Thread.CurrentThread.Priority;
+ 		Thread.CurrentThread.Priority = ThreadPriority.Highest;
++		*/
+ 		int num3 = num / num2;
+ 		int num4 = num % num2;
+ 		CountdownEvent countdownEvent = new CountdownEvent(num2);
+@@ -73,9 +_,12 @@
+ 				ThreadPool.QueueUserWorkItem(InvokeTask, rangeTask);
+ 			}
+ 		}
++		/*
+ 		while (countdownEvent.CurrentCount != 0) {
+ 		}
+ 		Thread.CurrentThread.Priority = priority;
++		*/
++		countdownEvent.Wait();
+ 	}
+ 
+ 	private static void InvokeTask(object context)

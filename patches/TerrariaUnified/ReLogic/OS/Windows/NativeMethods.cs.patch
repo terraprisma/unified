@@ -1,0 +1,14 @@
+--- decompiled/TerrariaBuildable/ReLogic/OS/Windows/NativeMethods.cs
++++ decompiled/TerrariaUnified/ReLogic/OS/Windows/NativeMethods.cs
+@@ -1,10 +_,9 @@
+ using System;
+ using System.Runtime.InteropServices;
+-using System.Windows.Forms;
+ 
+ namespace ReLogic.OS.Windows;
+ 
+-internal static class NativeMethods
++internal static partial class NativeMethods
+ {
+ 	public delegate IntPtr WndProcCallback(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+ 

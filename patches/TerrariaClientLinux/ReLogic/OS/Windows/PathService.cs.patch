@@ -1,0 +1,11 @@
+--- decompiled/TerrariaClientWindows/ReLogic/OS/Windows/PathService.cs
++++ decompiled/TerrariaClientLinux/ReLogic/OS/Windows/PathService.cs
+@@ -9,7 +_,7 @@
+ {
+ 	public override string GetStoragePath()
+ 	{
+-		return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "My Games");
++		return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games");
+ 	}
+ 
+ 	public override void OpenURL(string url)

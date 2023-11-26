@@ -1,0 +1,15 @@
+--- decompiled/TerrariaClientWindows/Terraria/Terraria.csproj
++++ decompiled/TerrariaClientMac/Terraria/Terraria.csproj
+@@ -10,11 +_,8 @@
+   </PropertyGroup>
+   <ItemGroup>
+     <Reference Include="CsvHelper" />
++    <Reference Include="FNA" />
+     <Reference Include="Ionic.Zip.CF" />
+-    <Reference Include="Microsoft.Xna.Framework" />
+-    <Reference Include="Microsoft.Xna.Framework.Game" />
+-    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+-    <Reference Include="Microsoft.Xna.Framework.Xact" />
+     <Reference Include="MP3Sharp" />
+     <Reference Include="Newtonsoft.Json" />
+     <Reference Include="NVorbis" />

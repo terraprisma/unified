@@ -1,0 +1,11 @@
+--- decompiled/TerrariaClientWindows/SteelSeriesEngineWrapper/FullSerializer/Internal/fsKeyValuePairConverter.cs
++++ decompiled/TerrariaBuildable/SteelSeriesEngineWrapper/FullSerializer/Internal/fsKeyValuePairConverter.cs
+@@ -26,7 +_,7 @@
+ 
+ 	public override fsResult TryDeserialize(fsData data, ref object instance, Type storageType)
+ 	{
+-		fsResult success = fsResult.Success;
++		fsResult success = FullSerializer.fsResult.Success;
+ 		fsData subitem;
+ 		fsResult fsResult = (success += CheckKey(data, "Key", out subitem));
+ 		if (fsResult.Failed) {

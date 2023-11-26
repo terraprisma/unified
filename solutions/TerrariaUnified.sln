@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailSDK", "..\decompiled\TerrariaUnified\RailSDK\RailSDK.csproj", "{202826EC-2339-416A-A321-4FAB745EFB39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReLogic", "..\decompiled\TerrariaUnified\ReLogic\ReLogic.csproj", "{02FC9CBB-8CD0-4732-AE4C-0C0C0423D94A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelSeriesEngineWrapper", "..\decompiled\TerrariaUnified\SteelSeriesEngineWrapper\SteelSeriesEngineWrapper.csproj", "{7AF60EEC-225A-4149-B07A-5D6C823ADF78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terraria", "..\decompiled\TerrariaUnified\Terraria\Terraria.csproj", "{91C6D039-9983-433A-A434-35DAB5621648}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNA", "..\src\FNA\FNA.csproj", "{0AAA0779-8983-46C9-938B-EBDAF894CF0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{202826EC-2339-416A-A321-4FAB745EFB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202826EC-2339-416A-A321-4FAB745EFB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202826EC-2339-416A-A321-4FAB745EFB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202826EC-2339-416A-A321-4FAB745EFB39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02FC9CBB-8CD0-4732-AE4C-0C0C0423D94A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02FC9CBB-8CD0-4732-AE4C-0C0C0423D94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02FC9CBB-8CD0-4732-AE4C-0C0C0423D94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02FC9CBB-8CD0-4732-AE4C-0C0C0423D94A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AF60EEC-225A-4149-B07A-5D6C823ADF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AF60EEC-225A-4149-B07A-5D6C823ADF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AF60EEC-225A-4149-B07A-5D6C823ADF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AF60EEC-225A-4149-B07A-5D6C823ADF78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C6D039-9983-433A-A434-35DAB5621648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C6D039-9983-433A-A434-35DAB5621648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C6D039-9983-433A-A434-35DAB5621648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C6D039-9983-433A-A434-35DAB5621648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AAA0779-8983-46C9-938B-EBDAF894CF0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AAA0779-8983-46C9-938B-EBDAF894CF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AAA0779-8983-46C9-938B-EBDAF894CF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AAA0779-8983-46C9-938B-EBDAF894CF0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+--- decompiled/TerrariaClientWindows/SteelSeriesEngineWrapper/FullSerializer/Internal/fsArrayConverter.cs
++++ decompiled/TerrariaBuildable/SteelSeriesEngineWrapper/FullSerializer/Internal/fsArrayConverter.cs
+@@ -42,7 +_,7 @@
+ 
+ 	public override fsResult TryDeserialize(fsData data, ref object instance, Type storageType)
+ 	{
+-		fsResult success = fsResult.Success;
++		fsResult success = FullSerializer.fsResult.Success;
+ 		fsResult fsResult = (success += CheckType(data, fsDataType.Array));
+ 		if (fsResult.Failed) {
+ 			return success;

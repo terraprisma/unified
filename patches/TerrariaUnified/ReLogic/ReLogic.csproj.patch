@@ -1,0 +1,26 @@
+--- decompiled/TerrariaBuildable/ReLogic/ReLogic.csproj
++++ decompiled/TerrariaUnified/ReLogic/ReLogic.csproj
+@@ -6,19 +_,16 @@
+         <Company>Re-Logic</Company>
+         <Company>Copyright © Re-Logic 2017</Company>
+         <RootNamespace>ReLogic</RootNamespace>
+-        <TargetFramework>net40</TargetFramework>
++        <TargetFramework>net8.0</TargetFramework>
+         <LangVersion>latest</LangVersion>
+     </PropertyGroup>
+ 
+     <ItemGroup>
++        <PackageReference Include="DotNetZip" Version="1.16.0"/>
++        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+         <ProjectReference Include="../RailSDK/RailSDK.csproj"/>
+         <ProjectReference Include="../SteelSeriesEngineWrapper/SteelSeriesEngineWrapper.csproj"/>
+-        <Reference Include="../Terraria/Libraries/DotNetZip/Ionic.Zip.CF.dll"/>
+-        <Reference Include="../Terraria/Libraries/XNA/Microsoft.Xna.Framework.dll"/>
+-        <Reference Include="../Terraria/Libraries/XNA/Microsoft.Xna.Framework.Game.dll"/>
+-        <Reference Include="../Terraria/Libraries/XNA/Microsoft.Xna.Framework.Graphics.dll"/>
+-        <Reference Include="../Terraria/Libraries/JSON.NET/Newtonsoft.Json.dll"/>
+-        <Reference Include="System.Windows.Forms"/>
++        <ProjectReference Include="../../../src/FNA/FNA.csproj"/>
+     </ItemGroup>
+ 
+     <ItemGroup>

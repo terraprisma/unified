@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailSDK", "..\decompiled\TerrariaBuildable\RailSDK\RailSDK.csproj", "{A368A7A8-BCE1-432D-9798-143346F932BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelSeriesEngineWrapper", "..\decompiled\TerrariaBuildable\SteelSeriesEngineWrapper\SteelSeriesEngineWrapper.csproj", "{510F4EFD-E6BD-4C0F-9FE5-589F4DA1E6A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReLogic", "..\decompiled\TerrariaBuildable\ReLogic\ReLogic.csproj", "{FAC103EB-8A69-405B-85FA-A5C10CDA1FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terraria", "..\decompiled\TerrariaBuildable\Terraria\Terraria.csproj", "{1661861A-2C0A-483E-8FA3-29CB0248F13D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A368A7A8-BCE1-432D-9798-143346F932BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A368A7A8-BCE1-432D-9798-143346F932BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A368A7A8-BCE1-432D-9798-143346F932BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A368A7A8-BCE1-432D-9798-143346F932BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{510F4EFD-E6BD-4C0F-9FE5-589F4DA1E6A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{510F4EFD-E6BD-4C0F-9FE5-589F4DA1E6A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{510F4EFD-E6BD-4C0F-9FE5-589F4DA1E6A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{510F4EFD-E6BD-4C0F-9FE5-589F4DA1E6A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC103EB-8A69-405B-85FA-A5C10CDA1FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC103EB-8A69-405B-85FA-A5C10CDA1FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC103EB-8A69-405B-85FA-A5C10CDA1FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC103EB-8A69-405B-85FA-A5C10CDA1FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1661861A-2C0A-483E-8FA3-29CB0248F13D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1661861A-2C0A-483E-8FA3-29CB0248F13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1661861A-2C0A-483E-8FA3-29CB0248F13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1661861A-2C0A-483E-8FA3-29CB0248F13D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

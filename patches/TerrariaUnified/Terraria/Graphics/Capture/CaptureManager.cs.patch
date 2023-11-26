@@ -1,0 +1,11 @@
+--- decompiled/TerrariaBuildable/Terraria/Graphics/Capture/CaptureManager.cs
++++ decompiled/TerrariaUnified/Terraria/Graphics/Capture/CaptureManager.cs
+@@ -6,7 +_,7 @@
+ 
+ public class CaptureManager : IDisposable
+ {
+-	public static CaptureManager Instance = new CaptureManager();
++	public static CaptureManager Instance = Main.dedServ ? new CaptureManager() : null;
+ 
+ 	private CaptureInterface _interface;
+ 

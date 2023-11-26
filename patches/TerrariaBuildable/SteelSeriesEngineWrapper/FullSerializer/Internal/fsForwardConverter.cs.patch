@@ -1,0 +1,20 @@
+--- decompiled/TerrariaClientWindows/SteelSeriesEngineWrapper/FullSerializer/Internal/fsForwardConverter.cs
++++ decompiled/TerrariaBuildable/SteelSeriesEngineWrapper/FullSerializer/Internal/fsForwardConverter.cs
+@@ -32,7 +_,7 @@
+ 	public override fsResult TrySerialize(object instance, out fsData serialized, Type storageType)
+ 	{
+ 		serialized = fsData.Null;
+-		fsResult success = fsResult.Success;
++		fsResult success = FullSerializer.fsResult.Success;
+ 		fsMetaProperty property;
+ 		fsResult fsResult = (success += GetProperty(instance, out property));
+ 		if (fsResult.Failed) {
+@@ -44,7 +_,7 @@
+ 
+ 	public override fsResult TryDeserialize(fsData data, ref object instance, Type storageType)
+ 	{
+-		fsResult success = fsResult.Success;
++		fsResult success = FullSerializer.fsResult.Success;
+ 		fsMetaProperty property;
+ 		fsResult fsResult = (success += GetProperty(instance, out property));
+ 		if (fsResult.Failed) {

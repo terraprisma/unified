@@ -1,0 +1,18 @@
+--- decompiled/TerrariaBuildable/Terraria/Audio/OGGAudioTrack.cs
++++ decompiled/TerrariaUnified/Terraria/Audio/OGGAudioTrack.cs
+@@ -1,5 +_,6 @@
+ using System.Collections.Generic;
+ using System.IO;
++using System.Linq;
+ using Microsoft.Xna.Framework.Audio;
+ using NVorbis;
+ 
+@@ -57,7 +_,7 @@
+ 
+ 	private void FindLoops()
+ 	{
+-		IDictionary<string, IList<string>> all = _vorbisReader.Tags.All;
++		IDictionary<string, IList<string>> all = _vorbisReader.Tags.All.ToDictionary(x => x.Key, x => (IList<string>)x.Value.ToList());
+ 		TryReadingTag(all, "LOOPSTART", ref _loopStart);
+ 		TryReadingTag(all, "LOOPEND", ref _loopEnd);
+ 	}

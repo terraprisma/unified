@@ -1,0 +1,11 @@
+--- decompiled/TerrariaBuildable/ReLogic/Graphics/DynamicSpriteFontReader.cs
++++ decompiled/TerrariaUnified/ReLogic/Graphics/DynamicSpriteFontReader.cs
+@@ -7,7 +_,7 @@
+ 
+ public class DynamicSpriteFontReader : ContentTypeReader<DynamicSpriteFont>
+ {
+-	protected override DynamicSpriteFont Read(ContentReader input, DynamicSpriteFont existingInstance)
++	protected internal override DynamicSpriteFont Read(ContentReader input, DynamicSpriteFont existingInstance)
+ 	{
+ 		float spacing = input.ReadSingle();
+ 		int lineSpacing = input.ReadInt32();

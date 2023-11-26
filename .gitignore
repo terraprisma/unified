@@ -1,0 +1,12 @@
+.vs/
+.vscode/
+.idea/
+
+bin/
+obj/
+
+*.user
+
+downloads/
+decompiled/
+cloned/

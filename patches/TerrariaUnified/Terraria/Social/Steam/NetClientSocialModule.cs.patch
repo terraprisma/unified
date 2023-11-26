@@ -1,0 +1,22 @@
+--- decompiled/TerrariaBuildable/Terraria/Social/Steam/NetClientSocialModule.cs
++++ decompiled/TerrariaUnified/Terraria/Social/Steam/NetClientSocialModule.cs
+@@ -67,7 +_,7 @@
+ 			_lobby.Leave();
+ 		}
+ 		ProcessStartInfo startInfo = process.StartInfo;
+-		startInfo.Arguments = startInfo.Arguments + " -steam -localsteamid " + SteamUser.GetSteamID().m_SteamID;
++		startInfo.Arguments = startInfo.Arguments + $" -{WindowsLaunch.SocialModeToString(SocialAPI.Mode)} -localsteamid " + SteamUser.GetSteamID().m_SteamID;
+ 		if (mode.HasFlag(ServerMode.Lobby)) {
+ 			_hasLocalHost = true;
+ 			if (mode.HasFlag(ServerMode.FriendsCanJoin)) {
+@@ -205,7 +_,9 @@
+ 	{
+ 		WeGameHelper.WriteDebugString(" SendAuthTicket");
+ 		if (_authTicket == HAuthTicket.Invalid) {
++			SteamNetworkingIdentity identity = new SteamNetworkingIdentity();
++			identity.SetSteamID(SteamUser.GetSteamID());
+-			_authTicket = SteamUser.GetAuthSessionTicket(_authData, _authData.Length, out _authDataLength);
++			_authTicket = SteamUser.GetAuthSessionTicket(_authData, _authData.Length, out _authDataLength, ref identity);
+ 		}
+ 		int num = (int)(_authDataLength + 3);
+ 		byte[] array = new byte[num];

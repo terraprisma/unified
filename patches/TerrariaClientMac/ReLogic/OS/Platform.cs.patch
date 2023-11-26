@@ -1,0 +1,17 @@
+--- decompiled/TerrariaClientWindows/ReLogic/OS/Platform.cs
++++ decompiled/TerrariaClientMac/ReLogic/OS/Platform.cs
+@@ -1,12 +_,12 @@
+ using System;
+-using ReLogic.OS.Windows;
++using ReLogic.OS.OSX;
+ using ReLogic.Utilities;
+ 
+ namespace ReLogic.OS;
+ 
+ public abstract class Platform : IDisposable
+ {
+-	public static readonly Platform Current = new WindowsPlatform();
++	public static readonly Platform Current = new OsxPlatform();
+ 
+ 	public readonly PlatformType Type;
+ 

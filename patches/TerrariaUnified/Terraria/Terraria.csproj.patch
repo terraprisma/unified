@@ -1,0 +1,98 @@
+--- decompiled/TerrariaBuildable/Terraria/Terraria.csproj
++++ decompiled/TerrariaUnified/Terraria/Terraria.csproj
+@@ -8,28 +_,19 @@
+         <Company>Re-Logic</Company>
+         <Company>Copyright © 2022 Re-Logic</Company>
+         <RootNamespace>Terraria</RootNamespace>
+-        <TargetFramework>net40</TargetFramework>
++        <TargetFramework>net8.0</TargetFramework>
+         <LangVersion>latest</LangVersion>
+-        <PlatformTarget>x86</PlatformTarget>
++        <ApplicationIcon>icon.ico</ApplicationIcon>
+     </PropertyGroup>
+ 
+     <ItemGroup>
++        <PackageReference Include="CsvHelper" Version="30.0.1"/>
++        <PackageReference Include="MP3Sharp" Version="1.0.5"/>
++        <PackageReference Include="NVorbis" Version="0.10.5"/>
+         <ProjectReference Include="../RailSDK/RailSDK.csproj"/>
+         <ProjectReference Include="../ReLogic/ReLogic.csproj"/>
+         <ProjectReference Include="../SteelSeriesEngineWrapper/SteelSeriesEngineWrapper.csproj"/>
+-        <Reference Include="CsvHelper"/>
+-        <Reference Include="Ionic.Zip.CF"/>
+-        <Reference Include="Microsoft.Xna.Framework"/>
+-        <Reference Include="Microsoft.Xna.Framework.Game"/>
+-        <Reference Include="Microsoft.Xna.Framework.Graphics"/>
+-        <Reference Include="Microsoft.Xna.Framework.Xact"/>
+-        <Reference Include="MP3Sharp"/>
+-        <Reference Include="Newtonsoft.Json"/>
+-        <Reference Include="NVorbis"/>
+-        <Reference Include="NVorbis.System.ValueTuple"/>
+         <Reference Include="Steamworks.NET"/>
+-        <Reference Include="System.Windows.Forms"/>
+-        <Reference Include="WindowsBase"/>
+     </ItemGroup>
+ 
+     <ItemGroup>
+@@ -39,6 +_,61 @@
+         <EmbeddedResource Include="IO/Data/*"/>
+         <EmbeddedResource Include="Localization/Content/**"/>
+         <EmbeddedResource Include="Microsoft/**"/>
++    </ItemGroup>
++
++    <ItemGroup>
++        <None Update="Libraries\Natives\aarch64\*">
++            <Link>Libraries\Natives\aarch64\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\linux-x64\*">
++            <Link>Libraries\Natives\linux-x64\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\osx-x64\*">
++            <Link>Libraries\Natives\osx-x64\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\win-x64\*">
++            <Link>Libraries\Natives\win-x64\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\win-x86\*">
++            <Link>Libraries\Natives\win-x86\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\aarch64\Managed\*">
++            <Link>Libraries\Natives\aarch64\Managed\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\linux-x64\Managed\*">
++            <Link>Libraries\Natives\linux-x64\Managed\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\osx-x64\Managed\*">
++            <Link>Libraries\Natives\osx-x64\Managed\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\win-x64\Managed\*">
++            <Link>Libraries\Natives\win-x64\Managed\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="Libraries\Natives\win-x86\Managed\*">
++            <Link>Libraries\Natives\win-x86\Managed\%(Filename)%(Extension)</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="MoltenVK_icd.json">
++            <Link>MoltenVK_icd.json</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="ChromaAppInfo.xml">
++            <Link>ChromaAppInfo.xml</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
++        <None Update="steam_appid.txt">
++            <Link>steam_appid.txt</Link>
++            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
++        </None>
+     </ItemGroup>
+ 
+ </Project>

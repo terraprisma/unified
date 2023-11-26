@@ -1,0 +1,22 @@
+--- decompiled/TerrariaBuildable/Terraria/Social/Steam/CoreSocialModule.cs
++++ decompiled/TerrariaUnified/Terraria/Social/Steam/CoreSocialModule.cs
+@@ -1,7 +_,7 @@
+ using System;
+ using System.Threading;
+-using System.Windows.Forms;
+ using ReLogic.OS;
++using SDL2;
+ using Steamworks;
+ using Terraria.Localization;
+ 
+@@ -37,7 +_,10 @@
+ 			return;
+ 		}
+ 		if (!SteamAPI.Init()) {
++			/*
+ 			MessageBox.Show(Language.GetTextValue("Error.LaunchFromSteam"), Language.GetTextValue("Error.Error"));
++			*/
++			SDL.SDL_ShowSimpleMessageBox(SDL.SDL_MessageBoxFlags.SDL_MESSAGEBOX_ERROR, Language.GetTextValue("Error.LaunchFromSteam"), Language.GetTextValue("Error.Error"), IntPtr.Zero);
+ 			Environment.Exit(1);
+ 		}
+ 		IsSteamValid = true;
