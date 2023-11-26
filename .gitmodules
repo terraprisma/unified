@@ -4,6 +4,4 @@
 [submodule "src/DotnetPatcher"]
 	path = src/DotnetPatcher
 	url = https://github.com/steviegt6/DotnetPatcher
-[submodule "FNA"]
-	path = FNA
-	url = https://github.com/steviegt6/FNA
+
