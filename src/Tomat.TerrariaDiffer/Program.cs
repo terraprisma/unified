@@ -15,46 +15,6 @@ internal static class Program {
     private static readonly Manifest terraria_mac = new(105603, "TerrariaMac");
     private const string file_exclusion_regex = @"^.*(?<!\.xnb)(?<!\.xwb)(?<!\.xsb)(?<!\.xgs)(?<!\.bat)(?<!\.txt)(?<!\.xml)(?<!\.msi)$";
 
-    private static readonly DiffNode patch_configuration = new DepotDiffNode(
-        "TerrariaRelease",
-        "TerrariaClientWindows",
-        "Terraria.exe",
-        new DepotDiffNode(
-            "TerrariaLinux",
-            "TerrariaClientLinux",
-            "Terraria.exe"
-        ),
-        new DepotDiffNode(
-            "TerrariaMac",
-            "TerrariaClientMac",
-            "Terraria.app/Contents/Resources/Terraria.exe"
-        ),
-        new DepotDiffNode(
-            "TerrariaRelease",
-            "TerrariaServerWindows",
-            "TerrariaServer.exe",
-            new DepotDiffNode(
-                "TerrariaLinux",
-                "TerrariaServerLinux",
-                "TerrariaServer.exe"
-            ),
-            new DepotDiffNode(
-                "TerrariaMac",
-                "TerrariaServerMac",
-                "Terraria.app/Contents/Resources/TerrariaServer.exe"
-            )
-        ),
-        new ModDiffNode(
-            "TerrariaBuildable",
-            new ModDiffNode(
-                "TerrariaUnified",
-                new ModDiffNode(
-                    "TerrariaModernized"
-                )
-            )
-        )
-    );
-
     internal static void Main(string[] args) {
         if (Environment.GetEnvironmentVariable("SKIP_DOWNLOAD") != "1") {
             var username = Console.ReadLine()!;
@@ -66,13 +26,18 @@ internal static class Program {
             DownloadManifest(username, password, terraria_mac);
         }
 
-        DecompileAndDiffDepotNodes(patch_configuration);
+        if (Environment.GetEnvironmentVariable("PATCH_FILE") is not { } patchFileName)
+            patchFileName = "patches.json";
+
+        var patchConfiguration = DiffNode.FromFile(patchFileName);
+
+        DecompileAndDiffDepotNodes(patchConfiguration);
 
         if (Environment.GetEnvironmentVariable("DIFF_MODS") == "1")
-            DiffModNodes(patch_configuration);
+            DiffModNodes(patchConfiguration);
 
         if (Environment.GetEnvironmentVariable("PATCH_MODS") == "1")
-            PatchModNodes(patch_configuration);
+            PatchModNodes(patchConfiguration);
     }
 
     private static void DownloadManifest(string username, string password, Manifest manifest) {

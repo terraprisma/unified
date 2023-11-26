@@ -1,0 +1,50 @@
+{
+  "type": "depot",
+  "depot": "TerrariaRelease",
+  "workspace": "TerrariaClientWindows",
+  "path": "Terraria.exe",
+  "children": [
+    {
+      "type": "depot",
+      "depot": "TerrariaLinux",
+      "workspace": "TerrariaClientLinux",
+      "path": "Terraria.exe"
+    },
+    {
+      "type": "depot",
+      "depot": "TerrariaMac",
+      "workspace": "TerrariaClientMac",
+      "path": "Terraria.app/Contents/Resources/Terraria.exe"
+    },
+    {
+      "type": "depot",
+      "depot": "TerrariaRelease",
+      "workspace": "TerrariaServerWindows",
+      "path": "TerrariaServer.exe",
+      "children": [
+        {
+          "type": "depot",
+          "depot": "TerrariaLinux",
+          "workspace": "TerrariaServerLinux",
+          "path": "TerrariaServer.exe"
+        },
+        {
+          "type": "depot",
+          "depot": "TerrariaMac",
+          "workspace": "TerrariaServerMac",
+          "path": "Terraria.app/Contents/Resources/TerrariaServer.exe"
+        }
+      ]
+    },
+    {
+      "type": "mod",
+      "name": "TerrariaBuildable",
+      "children": [
+        {
+          "type": "mod",
+          "name": "TerrariaUnified"
+        }
+      ]
+    }
+  ]
+}
