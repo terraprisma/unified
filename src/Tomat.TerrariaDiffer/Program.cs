@@ -13,7 +13,7 @@ internal static class Program {
     private static readonly Manifest terraria_release = new(105601, "TerrariaRelease");
     private static readonly Manifest terraria_linux = new(105602, "TerrariaLinux");
     private static readonly Manifest terraria_mac = new(105603, "TerrariaMac");
-    private const string file_exclusion_regex = "^.*(?<!\\.xnb)(?<!\\.xwb)(?<!\\.xsb)(?<!\\.xgs)(?<!\\.bat)(?<!\\.txt)(?<!\\.xml)(?<!\\.msi)$";
+    private const string file_exclusion_regex = @"^.*(?<!\.xnb)(?<!\.xwb)(?<!\.xsb)(?<!\.xgs)(?<!\.bat)(?<!\.txt)(?<!\.xml)(?<!\.msi)$";
 
     private static readonly DiffNode patch_configuration = new DepotDiffNode(
         "TerrariaRelease",
@@ -106,6 +106,7 @@ internal static class Program {
             Console.WriteLine($"Skipping {node.WorkspaceName} since it isn't a depot node...");
             foreach (var child in node.Children)
                 DecompileAndDiffDepotNodes(child, node);
+
             return;
         }
 
@@ -120,6 +121,7 @@ internal static class Program {
 
             if (Directory.Exists(dirName))
                 Directory.Delete(dirName, true);
+
             Directory.CreateDirectory(dirName);
 
             var depotDir = Path.Combine("downloads", depotNode.DepotName);
@@ -129,6 +131,7 @@ internal static class Program {
             var clonedDir = Path.Combine("cloned", depotNode.WorkspaceName);
             if (Directory.Exists(clonedDir))
                 Directory.Delete(clonedDir, true);
+
             CopyRecursively(depotDir, clonedDir);
             var exePath = Path.Combine(clonedDir, depotNode.RelativePathToExecutable);
 
@@ -144,6 +147,7 @@ internal static class Program {
                     Ranges = false,
                 }
             );
+
             decompiler.Decompile(new[] { "ReLogic", /*"LogitechLedEnginesWrapper",*/ "RailSDK.Net", "SteelSeriesEngineWrapper" });
         }
 
@@ -164,6 +168,7 @@ internal static class Program {
         var patchDirName = Path.Combine(patches_dir, node.WorkspaceName);
         if (Directory.Exists(patchDirName))
             Directory.Delete(patchDirName, true);
+
         Directory.CreateDirectory(patchDirName);
 
         var differ = new Differ(Path.Combine(decompilation_dir, parent.WorkspaceName), patchDirName, dirName);
@@ -175,6 +180,7 @@ internal static class Program {
             Console.WriteLine($"Skipping {node.WorkspaceName} since it isn't the expected node ({onlyNode})...");
             foreach (var child in node.Children)
                 DiffModNodes(child, node);
+
             return;
         }
 
@@ -182,6 +188,7 @@ internal static class Program {
             Console.WriteLine($"Skipping {node.WorkspaceName} since it isn't a mod node...");
             foreach (var child in node.Children)
                 DiffModNodes(child, node);
+
             return;
         }
 
@@ -195,6 +202,7 @@ internal static class Program {
         var patchDirName = Path.Combine("patches", node.WorkspaceName);
         if (Directory.Exists(patchDirName))
             Directory.Delete(patchDirName, true);
+
         Directory.CreateDirectory(patchDirName);
 
         var differ = new Differ(Path.Combine("decompiled", parent.WorkspaceName), patchDirName, Path.Combine("decompiled", node.WorkspaceName));
@@ -205,10 +213,11 @@ internal static class Program {
     }
 
     private static void PatchModNodes(DiffNode node, DiffNode? parent = null) {
-        if (Environment.GetEnvironmentVariable("ONLY_NODE") is string onlyNode && node.WorkspaceName != onlyNode) {
+        if (Environment.GetEnvironmentVariable("ONLY_NODE") is { } onlyNode && node.WorkspaceName != onlyNode) {
             Console.WriteLine($"Skipping {node.WorkspaceName} since it isn't the expected node ({onlyNode})...");
             foreach (var child in node.Children)
                 PatchModNodes(child, node);
+
             return;
         }
 
@@ -216,6 +225,7 @@ internal static class Program {
             Console.WriteLine($"Skipping {node.WorkspaceName} since it isn't a mod node...");
             foreach (var child in node.Children)
                 PatchModNodes(child, node);
+
             return;
         }
 

@@ -57,6 +57,7 @@ internal sealed class UniversalAssemblyResolver : IAssemblyResolver {
                     AssemblyResolver = this,
                 }
             );
+
             embeddedAssemblies.Add(assembly);
         }
     }
@@ -68,6 +69,7 @@ internal sealed class UniversalAssemblyResolver : IAssemblyResolver {
     public void Dispose() {
         foreach (var reference in embeddedAssemblies)
             reference.Dispose();
+
         baseResolver.Dispose();
     }
 

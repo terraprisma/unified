@@ -18,9 +18,12 @@ public static class AssemblyTransformer {
                 AssemblyResolver = resolver,
             }
         );
+
         resolver.AddEmbeddedAssembliesFrom(assembly);
 
-        var assemblyReferences = assembly.AssemblyReferences.Select(x => resolver.Resolve(x)).ToList();
+        var assemblyReferences = assembly.AssemblyReferences.Select(x => resolver.Resolve(x))
+            .ToList();
+
         var assembliesToWrite = new Dictionary<string, AssemblyDefinition>();
 
         foreach (var assemblyReference in assemblyReferences) {
@@ -39,11 +42,13 @@ public static class AssemblyTransformer {
             var path = assemblyReference.Value.MainModule.FileName;
             if (string.IsNullOrEmpty(path))
                 path = assemblyReference.Value.Name.Name + ".dll";
+
             streams.Add(Path.GetFileName(assemblyReference.Value.MainModule.FileName), stream);
         }
 
         foreach (var assemblyReference in assemblyReferences)
             assemblyReference.Dispose();
+
         assembly.Dispose();
         // resolver.Dispose();
 
@@ -71,7 +76,8 @@ public static class AssemblyTransformer {
         }
         else if (assembly.Name == "FNA.dll") {
             if (assembly.GetType("Microsoft.Xna.Framework.Color") is { } color) {
-                var constructors = color.Methods.Where(x => x.Name == ".ctor" && x.Parameters.Count == 4).ToList();
+                var constructors = color.Methods.Where(x => x.Name == ".ctor" && x.Parameters.Count == 4)
+                    .ToList();
 
                 foreach (var constructor in constructors) {
                     var alpha = constructor.Parameters.FirstOrDefault(x => x.Name == "alpha");
