@@ -1,6 +1,3 @@
-[submodule "src/DepotDownloader"]
-	path = src/DepotDownloader
-	url = https://github.com/SteamRE/DepotDownloader
 [submodule "src/DotnetPatcher"]
 	path = src/DotnetPatcher
 	url = https://github.com/steviegt6/DotnetPatcher
