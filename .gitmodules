@@ -4,9 +4,6 @@
 [submodule "src/FNA"]
 	path = src/FNA
 	url = https://github.com/steviegt6/FNA
-[submodule "DepotDownloadersrc/DepotDownloader"]
-	path = DepotDownloadersrc/DepotDownloader
-	url = https://github.com/terraprisma/DepotDownloader
 [submodule "src/DepotDownloader"]
 	path = src/DepotDownloader
 	url = https://github.com/terraprisma/DepotDownloader
