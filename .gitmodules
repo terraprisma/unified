@@ -1,9 +1,0 @@
-[submodule "src/DepotDownloader"]
-	path = src/DepotDownloader
-	url = https://github.com/terraprisma/DepotDownloader
-[submodule "src/DotnetPatcher"]
-	path = src/DotnetPatcher
-	url = https://github.com/steviegt6/DotnetPatcher
-[submodule "src/FNA"]
-	path = src/FNA
-	url = https://github.com/steviegt6/FNA
