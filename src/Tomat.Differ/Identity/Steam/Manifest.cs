@@ -1,6 +1,9 @@
-﻿namespace Tomat.TerrariaDiffer;
+﻿namespace Tomat.Differ.Identity.Steam;
 
-public struct Manifest {
+/// <summary>
+///     An immutable manifest identifier for a depot.
+/// </summary>
+public readonly struct Manifest {
     public int DepotId { get; }
 
     // Consistency for us...

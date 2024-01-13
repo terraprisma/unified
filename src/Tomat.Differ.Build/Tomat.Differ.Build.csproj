@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Spectre.Console" Version="0.48.1-preview.0.11"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Tomat.Differ\Tomat.Differ.csproj"/>
+    </ItemGroup>
+
+</Project>

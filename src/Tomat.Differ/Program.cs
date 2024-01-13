@@ -1,29 +1,31 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using DotnetPatcher.Decompile;
-using DotnetPatcher.Diff;
 using DotnetPatcher.Patch;
 using ICSharpCode.Decompiler;
 using ICSharpCode.Decompiler.CSharp.OutputVisitor;
+using Tomat.Differ.Identity;
+using Tomat.Differ.Identity.Steam;
+using Tomat.Differ.Transformation;
+using Tomat.Differ.Transformation.Transformers;
 
-namespace Tomat.TerrariaDiffer;
+[assembly: InternalsVisibleTo("Tomat.Differ.Build")]
+
+namespace Tomat.Differ;
 
 internal static class Program {
-    private static readonly Game game = new(105600);
-    private static readonly Manifest terraria_release = new(105601, "TerrariaRelease");
-    private static readonly Manifest terraria_linux = new(105602, "TerrariaLinux");
-    private static readonly Manifest terraria_mac = new(105603, "TerrariaMac");
     private const string file_exclusion_regex = @"^.*(?<!\.xnb)(?<!\.xwb)(?<!\.xsb)(?<!\.xgs)(?<!\.bat)(?<!\.txt)(?<!\.xml)(?<!\.msi)$";
 
-    internal static void Main(string[] args) {
+    internal static void Main() {
         if (Environment.GetEnvironmentVariable("SKIP_DOWNLOAD") != "1") {
             var username = Console.ReadLine()!;
             var password = Console.ReadLine()!;
 
             File.WriteAllText("filelist.txt", "regex:" + file_exclusion_regex);
-            DownloadManifest(username, password, terraria_release);
-            DownloadManifest(username, password, terraria_linux);
-            DownloadManifest(username, password, terraria_mac);
+            DownloadManifest(username, password, Games.Terraria.RELEASE);
+            DownloadManifest(username, password, Games.Terraria.LINUX);
+            DownloadManifest(username, password, Games.Terraria.MAC);
         }
 
         if (Environment.GetEnvironmentVariable("PATCH_FILE") is not { } patchFileName)
@@ -41,7 +43,7 @@ internal static class Program {
     }
 
     private static void DownloadManifest(string username, string password, Manifest manifest) {
-        var appId = game.AppId;
+        var appId = Games.Terraria.GAME.AppId;
         var depot = manifest.DepotId;
 
         if (Directory.Exists(manifest.Name))
@@ -100,7 +102,8 @@ internal static class Program {
             CopyRecursively(depotDir, clonedDir);
             var exePath = Path.Combine(clonedDir, depotNode.RelativePathToExecutable);
 
-            AssemblyTransformer.TransformAssembliesForAssembly(exePath);
+            var context = AssemblyTransformer.GetAssemblyContextWithUniversalAssemblyResolverFromPath(exePath);
+            AssemblyTransformer.TransformAssembly(context, new DecompilerParityTransformer());
 
             // var formatting = FormattingOptionsFactory.CreateKRStyle();
             // formatting.IndentationString = "    ";
@@ -136,7 +139,7 @@ internal static class Program {
 
         Directory.CreateDirectory(patchDirName);
 
-        var differ = new Differ(Path.Combine(decompilation_dir, parent.WorkspaceName), patchDirName, dirName);
+        var differ = new DotnetPatcher.Diff.Differ(Path.Combine(decompilation_dir, parent.WorkspaceName), patchDirName, dirName);
         differ.Diff();
     }
 
@@ -170,7 +173,7 @@ internal static class Program {
 
         Directory.CreateDirectory(patchDirName);
 
-        var differ = new Differ(Path.Combine("decompiled", parent.WorkspaceName), patchDirName, Path.Combine("decompiled", node.WorkspaceName));
+        var differ = new DotnetPatcher.Diff.Differ(Path.Combine("decompiled", parent.WorkspaceName), patchDirName, Path.Combine("decompiled", node.WorkspaceName));
         differ.Diff();
 
         foreach (var child in node.Children)

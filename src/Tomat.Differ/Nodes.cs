@@ -2,9 +2,15 @@
 using System.IO;
 using Newtonsoft.Json;
 
-namespace Tomat.TerrariaDiffer;
+namespace Tomat.Differ;
 
+/// <summary>
+///     An abstract node.
+/// </summary>
 public abstract class DiffNode {
+    /// <summary>
+    ///     The JSON representation of a node.
+    /// </summary>
     public class MetaNode {
         [JsonProperty("type")]
         public string? Type { get; set; }
@@ -25,8 +31,14 @@ public abstract class DiffNode {
         public List<MetaNode>? Children { get; set; }
     }
 
+    /// <summary>
+    ///     The name of the patching workspace.
+    /// </summary>
     public string WorkspaceName { get; }
 
+    /// <summary>
+    ///     Dependent children nodes.
+    /// </summary>
     public DiffNode[] Children { get; }
 
     protected DiffNode(string workspaceName, params DiffNode[] children) {
@@ -79,9 +91,19 @@ public abstract class DiffNode {
     }
 }
 
+/// <summary>
+///     A node that uses a depot-downloaded copy of Terraria.
+/// </summary>
 public sealed class DepotDiffNode : DiffNode {
+    /// <summary>
+    ///     The name of this depot.
+    /// </summary>
     public string DepotName { get; }
 
+    /// <summary>
+    ///     The path to the executable, relative to the root directory of the
+    ///     depot.
+    /// </summary>
     public string RelativePathToExecutable { get; }
 
     public DepotDiffNode(string depotName, string workspaceName, string relativePathToExecutable, params DiffNode[] children) : base(workspaceName, children) {
@@ -90,6 +112,10 @@ public sealed class DepotDiffNode : DiffNode {
     }
 }
 
+/// <summary>
+///     A node that is used for a standalone mod, meaning there is not depot to
+///     draw from.
+/// </summary>
 public sealed class ModDiffNode : DiffNode {
     public ModDiffNode(string workspaceName, params DiffNode[] children) : base(workspaceName, children) { }
 }

@@ -4,10 +4,10 @@ using System.IO;
 using System.Text;
 using Mono.Cecil;
 
-namespace Tomat.TerrariaDiffer;
+namespace Tomat.Differ;
 
 internal sealed class UniversalAssemblyResolver : IAssemblyResolver {
-    private static readonly List<string> gacPaths = GetGacPaths();
+    private static readonly List<string> gac_paths = GetGacPaths();
     private readonly DefaultAssemblyResolver baseResolver = new();
     private readonly List<AssemblyDefinition> embeddedAssemblies = new();
 
@@ -81,7 +81,7 @@ internal sealed class UniversalAssemblyResolver : IAssemblyResolver {
         var caches = new[] { "GAC_MSIL", "GAC_32", "GAC_64", "GAC" };
         var prefixes = new[] { string.Empty, "v4.0_" };
 
-        foreach (var gacPath in gacPaths)
+        foreach (var gacPath in gac_paths)
         foreach (var cache in caches)
         foreach (var prefix in prefixes) {
             var gac = Path.Combine(gacPath, cache);
