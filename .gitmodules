@@ -7,6 +7,3 @@
 [submodule "src/DepotDownloader"]
 	path = src/DepotDownloader
 	url = https://github.com/terraprisma/DepotDownloader
-[submodule "src/diff-patch"]
-	path = src/diff-patch
-	url = https://github.com/terraprisma/diff-patch
