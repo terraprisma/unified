@@ -108,16 +108,30 @@ partial class WindowsLaunch
 		// If we can't detect the appropriate social mode that way, let's try
 		// figuring it ourselves by initializing various social APIs and seeing
 		// which one lands first.
-		if (SteamAPI.Init())
+		try
 		{
-			mode = SocialMode.Steam;
-			return true;
+			if (SteamAPI.Init())
+			{
+				mode = SocialMode.Steam;
+				return true;
+			}
+		}
+		catch (Exception)
+		{
+			// ignore
 		}
 
-		if (rail_api.RailInitialize())
+		try
 		{
-			mode = SocialMode.WeGame;
-			return true;
+			if (rail_api.RailInitialize())
+			{
+				mode = SocialMode.WeGame;
+				return true;
+			}
+		}
+		catch (Exception)
+		{
+			// ignore
 		}
 
 		// If that fails, we'll go with no social mode and return false.

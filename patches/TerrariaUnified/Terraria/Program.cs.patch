@@ -49,6 +49,25 @@
  		InitializeConsoleOutput();
  		SetupLogging();
  		Platform.Get<IWindowService>().SetQuickEditEnabled(enabled: false);
+@@ -194,7 +_,8 @@
+ 
+ 	private static void TrySettingFNAToOpenGL(string[] args)
+ 	{
++		// TU: Don't enforce OpenGL requirement.
+-		bool flag = false;
++		/*bool flag = false;
+ 		for (int i = 0; i < args.Length; i++) {
+ 			if (args[i].Contains("gldevice")) {
+ 				flag = true;
+@@ -203,7 +_,7 @@
+ 		}
+ 		if (!flag) {
+ 			Environment.SetEnvironmentVariable("FNA3D_FORCE_DRIVER", "OpenGL");
+-		}
++		}*/
+ 	}
+ 
+ 	private static void DisplayException(Exception e)
 @@ -224,7 +_,10 @@
  			if (Main.dedServ) {
  				Console.WriteLine(Language.GetTextValue("Error.ServerCrash"), DateTime.Now, text);
