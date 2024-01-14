@@ -10,3 +10,6 @@
 [submodule "differ"]
 	path = differ
 	url = https://github.com/terraprisma/differ.git
+[submodule "vanilla"]
+	path = vanilla
+	url = https://github.com/terraprisma/vanilla.git
