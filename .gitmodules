@@ -7,3 +7,6 @@
 [submodule "FNA"]
 	path = FNA
 	url = https://github.com/steviegt6/FNA
+[submodule "relogic-ime"]
+	path = relogic-ime
+	url = https://github.com/terraprisma/relogic-ime.git
