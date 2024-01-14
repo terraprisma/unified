@@ -118,6 +118,7 @@ Environment.SetEnvironmentVariable("SKIP_DIFFING", diffAllDepots ? "0" : "1");
 Environment.SetEnvironmentVariable("DIFF_MODS", diffMods ? "1" : "0");
 Environment.SetEnvironmentVariable("PATCH_MODS", patchMods ? "1" : "0");
 Environment.SetEnvironmentVariable("REGENERATE_MOD_SOURCES", regenerateModSources ? "1" : "0");
+Environment.SetEnvironmentVariable("PATCH_FILE", args.Length >= 1 ? args[0] : null);
 if (onlyNode is { } node)
     Environment.SetEnvironmentVariable("ONLY_NODE", node);
 
