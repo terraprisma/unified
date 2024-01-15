@@ -5,7 +5,7 @@ namespace Terraria;
 
 partial class Main
 {
-	internal static string unifiedVersion = "0.1.0";
+	internal static string unifiedVersion = "0.1.2";
 
 	internal static List<TitleLinkButton> unifiedLinks = new List<TitleLinkButton>();
 
