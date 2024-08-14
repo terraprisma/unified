@@ -212,6 +212,7 @@
  	public void Begin()
  	{
 -		_spriteBatch.Begin();
+-		_spriteBatch.End();
 +		Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Matrix.Identity);
 +	}
 +
@@ -237,7 +238,7 @@
 +		}
 +		_sortMode = sortMode;
 +		_spriteBatch.Begin(sortMode, blendState, samplerState, depthStencilState, rasterizerState, effect, transformationMatrix);
- 		_spriteBatch.End();
++		_spriteBatch.End();
 +	}
 +
 +	public void End()

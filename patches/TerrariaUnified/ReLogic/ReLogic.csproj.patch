@@ -19,8 +19,8 @@
 -        <Reference Include="../Terraria/Libraries/XNA/Microsoft.Xna.Framework.Game.dll"/>
 -        <Reference Include="../Terraria/Libraries/XNA/Microsoft.Xna.Framework.Graphics.dll"/>
 -        <Reference Include="../Terraria/Libraries/JSON.NET/Newtonsoft.Json.dll"/>
--        <Reference Include="System.Windows.Forms"/>
 +        <ProjectReference Include="../../../FNA/FNA.csproj"/>
+-        <Reference Include="System.Windows.Forms"/>
      </ItemGroup>
  
      <ItemGroup>
