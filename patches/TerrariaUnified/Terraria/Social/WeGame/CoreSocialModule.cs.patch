@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/Social/WeGame/CoreSocialModule.cs
-+++ decompiled/TerrariaUnified/Terraria/Social/WeGame/CoreSocialModule.cs
+--- sources/TerrariaBuildable/Terraria/Social/WeGame/CoreSocialModule.cs
++++ sources/TerrariaUnified/Terraria/Social/WeGame/CoreSocialModule.cs
 @@ -1,9 +_,9 @@
  using System;
  using System.Runtime.InteropServices;
@@ -11,17 +11,18 @@
  
  namespace Terraria.Social.WeGame;
  
-@@ -60,7 +_,8 @@
+@@ -65,8 +_,9 @@
  
  	public void Shutdown()
  	{
+-		if (Platform.IsWindows)
 +		/*
--		if (Platform.IsWindows) {
+ 		{
 +		 if (Platform.IsWindows) {
- 			Application.ApplicationExit += delegate {
+ 			Application.ApplicationExit += delegate
+ 			{
  				isRailValid = false;
- 			};
-@@ -70,6 +_,11 @@
+@@ -80,6 +_,11 @@
  				isRailValid = false;
  			};
  		}
@@ -33,10 +34,10 @@
  		_callbackHelper.UnregisterAllCallback();
  		rail_api.RailFinalize();
  	}
-@@ -89,7 +_,10 @@
- 	private static void ProcessRailSystemStateChange(RailSystemState state)
+@@ -101,7 +_,10 @@
  	{
- 		if (state == RailSystemState.kSystemStatePlatformOffline || state == RailSystemState.kSystemStatePlatformExit) {
+ 		if (state == RailSystemState.kSystemStatePlatformOffline || state == RailSystemState.kSystemStatePlatformExit)
+ 		{
 +			/*
  			MessageBox.Show("检测到WeGame异常，游戏将自动保存进度并退出游戏", "Terraria--WeGame Error");
 +			*/

@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/ReLogic/Localization/IME/FnaIme.cs
-+++ decompiled/TerrariaUnified/ReLogic/Localization/IME/FnaIme.cs
+--- sources/TerrariaBuildable/ReLogic/Localization/IME/FnaIme.cs
++++ sources/TerrariaUnified/ReLogic/Localization/IME/FnaIme.cs
 @@ -1,3 +_,5 @@
 +using Microsoft.Xna.Framework.Input;
 +
@@ -17,14 +17,14 @@
 +
  	private void OnCharCallback(char key)
  	{
- 		if (base.IsEnabled) {
-@@ -27,6 +_,9 @@
- 	protected override void Dispose(bool disposing)
+ 		if (base.IsEnabled)
+@@ -29,6 +_,9 @@
  	{
- 		if (!_disposedValue) {
+ 		if (!_disposedValue)
+ 		{
 +			if (disposing)
 +				TextInputEXT.TextInput -= OnCharCallback;
 +			
- 			if (base.IsEnabled) {
+ 			if (base.IsEnabled)
+ 			{
  				Disable();
- 			}

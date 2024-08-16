@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/ReLogic/OS/Platform.cs
-+++ decompiled/TerrariaUnified/ReLogic/OS/Platform.cs
+--- sources/TerrariaBuildable/ReLogic/OS/Platform.cs
++++ sources/TerrariaUnified/ReLogic/OS/Platform.cs
 @@ -1,4 +_,7 @@
  using System;
 +using System.Runtime.InteropServices;

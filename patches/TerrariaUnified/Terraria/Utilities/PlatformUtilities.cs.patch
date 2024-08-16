@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/Utilities/PlatformUtilities.cs
-+++ decompiled/TerrariaUnified/Terraria/Utilities/PlatformUtilities.cs
+--- sources/TerrariaBuildable/Terraria/Utilities/PlatformUtilities.cs
++++ sources/TerrariaUnified/Terraria/Utilities/PlatformUtilities.cs
 @@ -1,12 +_,24 @@
  using System;
  using System.IO;

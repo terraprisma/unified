@@ -1,11 +1,12 @@
---- decompiled/TerrariaBuildable/ReLogic/Threading/FastParallel.cs
-+++ decompiled/TerrariaUnified/ReLogic/Threading/FastParallel.cs
-@@ -28,10 +_,19 @@
+--- sources/TerrariaBuildable/ReLogic/Threading/FastParallel.cs
++++ sources/TerrariaUnified/ReLogic/Threading/FastParallel.cs
+@@ -28,11 +_,20 @@
  
  		public void Invoke()
  		{
 +			/*
- 			if (_fromInclusive != _toExclusive) {
+ 			if (_fromInclusive != _toExclusive)
+ 			{
  				_action(_fromInclusive, _toExclusive, _context);
  			}
  			_countdown.Signal();
@@ -20,8 +21,8 @@
  		}
  	}
  
-@@ -52,8 +_,10 @@
- 		if (ForceTasksOnCallingThread) {
+@@ -55,8 +_,10 @@
+ 		{
  			num2 = 1;
  		}
 +		/*
@@ -31,12 +32,13 @@
  		int num3 = num / num2;
  		int num4 = num % num2;
  		CountdownEvent countdownEvent = new CountdownEvent(num2);
-@@ -73,9 +_,12 @@
+@@ -81,10 +_,13 @@
  				ThreadPool.QueueUserWorkItem(InvokeTask, rangeTask);
  			}
  		}
 +		/*
- 		while (countdownEvent.CurrentCount != 0) {
+ 		while (countdownEvent.CurrentCount != 0)
+ 		{
  		}
  		Thread.CurrentThread.Priority = priority;
 +		*/

@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/Social/Steam/CoreSocialModule.cs
-+++ decompiled/TerrariaUnified/Terraria/Social/Steam/CoreSocialModule.cs
+--- sources/TerrariaBuildable/Terraria/Social/Steam/CoreSocialModule.cs
++++ sources/TerrariaUnified/Terraria/Social/Steam/CoreSocialModule.cs
 @@ -1,7 +_,7 @@
  using System;
  using System.Threading;
@@ -9,10 +9,10 @@
  using Steamworks;
  using Terraria.Localization;
  
-@@ -37,7 +_,10 @@
- 			return;
+@@ -39,7 +_,10 @@
  		}
- 		if (!SteamAPI.Init()) {
+ 		if (!SteamAPI.Init())
+ 		{
 +			/*
  			MessageBox.Show(Language.GetTextValue("Error.LaunchFromSteam"), Language.GetTextValue("Error.Error"));
 +			*/

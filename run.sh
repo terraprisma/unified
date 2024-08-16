@@ -1,2 +1,2 @@
 #!/bin/bash
-dotnet run -c Release --project ./differ/src/Tomat.Differ.Build/Tomat.Differ.Build.csproj "patches.json"
+dotnet run -c Release --project ./paperclip/src/Reaganism.Paperclip.Build/Reaganism.Paperclip.Build.csproj "patches.json"

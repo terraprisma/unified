@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/Terraria.csproj
-+++ decompiled/TerrariaUnified/Terraria/Terraria.csproj
+--- sources/TerrariaBuildable/Terraria/Terraria.csproj
++++ sources/TerrariaUnified/Terraria/Terraria.csproj
 @@ -8,28 +_,19 @@
          <Company>Re-Logic</Company>
          <Company>Copyright © 2022 Re-Logic</Company>

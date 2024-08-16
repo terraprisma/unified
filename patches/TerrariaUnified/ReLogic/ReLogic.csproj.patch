@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/ReLogic/ReLogic.csproj
-+++ decompiled/TerrariaUnified/ReLogic/ReLogic.csproj
+--- sources/TerrariaBuildable/ReLogic/ReLogic.csproj
++++ sources/TerrariaUnified/ReLogic/ReLogic.csproj
 @@ -6,19 +_,16 @@
          <Company>Re-Logic</Company>
          <Company>Copyright © Re-Logic 2017</Company>

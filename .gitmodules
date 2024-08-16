@@ -1,9 +1,9 @@
-[submodule "differ"]
-	path = differ
-	url = https://github.com/terraprisma/differ.git
 [submodule "vanilla"]
 	path = vanilla
 	url = https://github.com/terraprisma/vanilla.git
 [submodule "FNA"]
 	path = FNA
 	url = https://github.com/steviegt6/FNA
+[submodule "paperclip"]
+	path = paperclip
+	url = https://github.com/reaganism/paperclip.git

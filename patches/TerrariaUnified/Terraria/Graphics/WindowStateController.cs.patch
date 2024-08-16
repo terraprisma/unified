@@ -1,6 +1,6 @@
---- decompiled/TerrariaBuildable/Terraria/Graphics/WindowStateController.cs
-+++ decompiled/TerrariaUnified/Terraria/Graphics/WindowStateController.cs
-@@ -1,32 +_,34 @@
+--- sources/TerrariaBuildable/Terraria/Graphics/WindowStateController.cs
++++ sources/TerrariaUnified/Terraria/Graphics/WindowStateController.cs
+@@ -1,15 +_,13 @@
 -using System.Drawing;
 -using System.Windows.Forms;
 -using ReLogic.OS;
@@ -12,12 +12,14 @@
 -	public bool CanMoveWindowAcrossScreens => Platform.IsWindows;
 +	public bool CanMoveWindowAcrossScreens => false;
  
- 	public string ScreenDeviceName {
+ 	public string ScreenDeviceName
+ 	{
 +		get => "";
 +		/*
- 		get {
- 			if (!Platform.IsWindows) {
- 				return "";
+ 		get
+ 		{
+ 			if (!Platform.IsWindows)
+@@ -18,10 +_,12 @@
  			}
  			return Main.instance.Window.ScreenDeviceName;
  		}
@@ -27,9 +29,10 @@
  	public void TryMovingToScreen(string screenDeviceName)
  	{
 +		/*
- 		if (CanMoveWindowAcrossScreens && TryGetBounds(screenDeviceName, out var bounds) && IsVisibleOnAnyScreen(bounds)) {
+ 		if (CanMoveWindowAcrossScreens && TryGetBounds(screenDeviceName, out var bounds) && IsVisibleOnAnyScreen(bounds))
+ 		{
  			Form form = (Form)Control.FromHandle(Main.instance.Window.Handle);
- 			if (WouldViewFitInScreen(form.Bounds, bounds)) {
+@@ -30,8 +_,10 @@
  				form.Location = new Point(bounds.Width / 2 - form.Width / 2 + bounds.X, bounds.Height / 2 - form.Height / 2 + bounds.Y);
  			}
  		}
@@ -40,7 +43,7 @@
  	private bool TryGetBounds(string screenDeviceName, out Rectangle bounds)
  	{
  		bounds = default(Rectangle);
-@@ -58,4 +_,5 @@
+@@ -68,4 +_,5 @@
  		}
  		return false;
  	}

@@ -8,5 +8,5 @@ obj/
 *.user
 
 downloads/
-decompiled/
+sources/
 cloned/

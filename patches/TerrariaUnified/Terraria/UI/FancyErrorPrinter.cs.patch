@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/UI/FancyErrorPrinter.cs
-+++ decompiled/TerrariaUnified/Terraria/UI/FancyErrorPrinter.cs
+--- sources/TerrariaBuildable/Terraria/UI/FancyErrorPrinter.cs
++++ sources/TerrariaUnified/Terraria/UI/FancyErrorPrinter.cs
 @@ -2,9 +_,9 @@
  using System.Collections.Generic;
  using System.IO;
@@ -11,12 +11,13 @@
  
  namespace Terraria.UI;
  
-@@ -113,8 +_,12 @@
+@@ -129,9 +_,13 @@
  
  	private static void ShowTheBox(string preparedMessage)
  	{
 +		/*
- 		if (Platform.IsWindows && !Main.dedServ) {
+ 		if (Platform.IsWindows && !Main.dedServ)
+ 		{
  			MessageBox.Show(preparedMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
  		}
 +		*/

@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/Audio/MP3AudioTrack.cs
-+++ decompiled/TerrariaUnified/Terraria/Audio/MP3AudioTrack.cs
+--- sources/TerrariaBuildable/Terraria/Audio/MP3AudioTrack.cs
++++ sources/TerrariaUnified/Terraria/Audio/MP3AudioTrack.cs
 @@ -1,6 +_,6 @@
  using System.IO;
  using Microsoft.Xna.Framework.Audio;

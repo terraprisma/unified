@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/ReLogic/Localization/IME/Windows/NativeMethods.cs
-+++ decompiled/TerrariaUnified/ReLogic/Localization/IME/Windows/NativeMethods.cs
+--- sources/TerrariaBuildable/ReLogic/Localization/IME/Windows/NativeMethods.cs
++++ sources/TerrariaUnified/ReLogic/Localization/IME/Windows/NativeMethods.cs
 @@ -1,6 +_,6 @@
  using System;
  using System.Runtime.InteropServices;

@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/RailSDK/RailSDK.csproj
-+++ decompiled/TerrariaUnified/RailSDK/RailSDK.csproj
+--- sources/TerrariaBuildable/RailSDK/RailSDK.csproj
++++ sources/TerrariaUnified/RailSDK/RailSDK.csproj
 @@ -6,7 +_,7 @@
          <Version>1.0.0.0</Version>
          <Company>Copyright © 2018</Company>

@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/ReLogic/Graphics/DynamicSpriteFontReader.cs
-+++ decompiled/TerrariaUnified/ReLogic/Graphics/DynamicSpriteFontReader.cs
+--- sources/TerrariaBuildable/ReLogic/Graphics/DynamicSpriteFontReader.cs
++++ sources/TerrariaUnified/ReLogic/Graphics/DynamicSpriteFontReader.cs
 @@ -7,7 +_,7 @@
  
  public class DynamicSpriteFontReader : ContentTypeReader<DynamicSpriteFont>

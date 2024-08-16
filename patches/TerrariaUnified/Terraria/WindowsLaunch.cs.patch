@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/WindowsLaunch.cs
-+++ decompiled/TerrariaUnified/Terraria/WindowsLaunch.cs
+--- sources/TerrariaBuildable/Terraria/WindowsLaunch.cs
++++ sources/TerrariaUnified/Terraria/WindowsLaunch.cs
 @@ -1,12 +_,9 @@
 -using System;
 -using System.IO;
@@ -14,7 +14,7 @@
  {
  	public delegate bool HandlerRoutine(CtrlTypes ctrlType);
  
-@@ -48,6 +_,7 @@
+@@ -50,6 +_,7 @@
  	[DllImport("Kernel32")]
  	public static extern bool SetConsoleCtrlHandler(HandlerRoutine handler, bool add);
  
@@ -22,7 +22,7 @@
  	[STAThread]
  	private static void Main(string[] args)
  	{
-@@ -64,4 +_,5 @@
+@@ -68,4 +_,5 @@
  		};
  		Program.LaunchGame(args);
  	}

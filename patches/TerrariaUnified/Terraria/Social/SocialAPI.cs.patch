@@ -1,15 +1,15 @@
---- decompiled/TerrariaBuildable/Terraria/Social/SocialAPI.cs
-+++ decompiled/TerrariaUnified/Terraria/Social/SocialAPI.cs
-@@ -35,6 +_,7 @@
- 	{
- 		if (!mode.HasValue) {
+--- sources/TerrariaBuildable/Terraria/Social/SocialAPI.cs
++++ sources/TerrariaUnified/Terraria/Social/SocialAPI.cs
+@@ -36,6 +_,7 @@
+ 		if (!mode.HasValue)
+ 		{
  			mode = SocialMode.None;
 +			/*
- 			if (Main.dedServ) {
- 				if (Program.LaunchParameters.ContainsKey("-steam")) {
- 					mode = SocialMode.Steam;
-@@ -42,6 +_,9 @@
- 			} else {
+ 			if (Main.dedServ)
+ 			{
+ 				if (Program.LaunchParameters.ContainsKey("-steam"))
+@@ -47,6 +_,9 @@
+ 			{
  				mode = SocialMode.Steam;
  			}
 +			*/

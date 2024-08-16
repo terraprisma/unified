@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/ReLogic/OS/Windows/NativeMethods.cs
-+++ decompiled/TerrariaUnified/ReLogic/OS/Windows/NativeMethods.cs
+--- sources/TerrariaBuildable/ReLogic/OS/Windows/NativeMethods.cs
++++ sources/TerrariaUnified/ReLogic/OS/Windows/NativeMethods.cs
 @@ -1,10 +_,9 @@
  using System;
  using System.Runtime.InteropServices;

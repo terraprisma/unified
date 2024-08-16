@@ -1,6 +1,6 @@
---- decompiled/TerrariaBuildable/Terraria/Audio/LegacyAudioSystem.cs
-+++ decompiled/TerrariaUnified/Terraria/Audio/LegacyAudioSystem.cs
-@@ -69,6 +_,12 @@
+--- sources/TerrariaBuildable/Terraria/Audio/LegacyAudioSystem.cs
++++ sources/TerrariaUnified/Terraria/Audio/LegacyAudioSystem.cs
+@@ -77,6 +_,12 @@
  	private IAudioTrack FindReplacementTrack(List<IContentSource> sources, string assetPath)
  	{
  		IAudioTrack audioTrack = null;
@@ -10,10 +10,10 @@
 +			}
 +			return null;
 +		}
- 		for (int i = 0; i < sources.Count; i++) {
+ 		for (int i = 0; i < sources.Count; i++)
+ 		{
  			IContentSource contentSource = sources[i];
- 			if (!contentSource.HasAsset(assetPath)) {
-@@ -103,10 +_,16 @@
+@@ -118,10 +_,16 @@
  
  	public LegacyAudioSystem()
  	{

@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/Graphics/Capture/CaptureCamera.cs
-+++ decompiled/TerrariaUnified/Terraria/Graphics/Capture/CaptureCamera.cs
+--- sources/TerrariaBuildable/Terraria/Graphics/Capture/CaptureCamera.cs
++++ sources/TerrariaUnified/Terraria/Graphics/Capture/CaptureCamera.cs
 @@ -1,7 +_,6 @@
  using System;
  using System.Collections.Generic;
@@ -20,26 +20,26 @@
  	private class CaptureChunk
  	{
  		public readonly Microsoft.Xna.Framework.Rectangle Area;
-@@ -224,6 +_,9 @@
- 			return false;
+@@ -255,6 +_,9 @@
  		}
- 		try {
+ 		try
+ 		{
 +			using FileStream stream = File.Create(filename);
 +			PlatformUtilities.SavePng(stream, width, height, width, height, _outputData);
 +			/*
- 			if (!Platform.IsWindows) {
+ 			if (!Platform.IsWindows)
+ 			{
  				using FileStream stream = File.Create(filename);
- 				PlatformUtilities.SavePng(stream, width, height, width, height, _outputData);
-@@ -237,6 +_,7 @@
+@@ -271,6 +_,7 @@
  				bitmap.Save(filename, imageFormat);
  				bitmap.Dispose();
  			}
 +			*/
  			return true;
- 		} catch (Exception value) {
- 			Console.WriteLine(value);
-@@ -251,6 +_,24 @@
- 		if (!Utils.TryCreatingDirectory(text)) {
+ 		}
+ 		catch (Exception value)
+@@ -288,6 +_,24 @@
+ 		{
  			return;
  		}
 +		int elementCount = texture.Width * texture.Height * 4;
@@ -60,10 +60,10 @@
 +		using FileStream stream = File.Create(text2);
 +		PlatformUtilities.SavePng(stream, width, height, width, height, _outputData);
 +		/*
- 		if (!Platform.IsWindows) {
+ 		if (!Platform.IsWindows)
+ 		{
  			int elementCount = texture.Width * texture.Height * 4;
- 			texture.GetData(_outputData, 0, elementCount);
-@@ -294,6 +_,7 @@
+@@ -336,6 +_,7 @@
  		Marshal.Copy(_outputData, 0, scan, width * height * 4);
  		bitmap.UnlockBits(bitmapData);
  		bitmap.Save(text2, imageFormat);

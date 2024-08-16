@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/Initializers/ChromaInitializer.cs
-+++ decompiled/TerrariaUnified/Terraria/Initializers/ChromaInitializer.cs
+--- sources/TerrariaBuildable/Terraria/Initializers/ChromaInitializer.cs
++++ sources/TerrariaUnified/Terraria/Initializers/ChromaInitializer.cs
 @@ -2,10 +_,8 @@
  using System.Collections.Generic;
  using System.Diagnostics;
@@ -11,37 +11,38 @@
  using ReLogic.Peripherals.RGB;
  using ReLogic.Peripherals.RGB.Corsair;
  using ReLogic.Peripherals.RGB.Logitech;
-@@ -524,9 +_,11 @@
+@@ -598,10 +_,12 @@
  		}
  		LoadSpecialRulesForDevices();
  		AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
 +		/*
- 		if (Platform.IsWindows) {
+ 		if (Platform.IsWindows)
+ 		{
  			Application.ApplicationExit += OnProcessExit;
  		}
 +		*/
  	}
  
  	private static void LoadSpecialRulesForDevices()
-@@ -545,6 +_,8 @@
+@@ -623,6 +_,8 @@
  
  	public static void UpdateEvents()
  	{
 +		if (Main.dedServ)
 +			return;
- 		if (Main.gameMenu) {
+ 		if (Main.gameMenu)
+ 		{
  			Event_LifePercent.Update(0, isVisible: false);
- 			Event_ManaPercent.Update(0, isVisible: false);
-@@ -643,6 +_,8 @@
+@@ -734,6 +_,8 @@
  
  	public static void DisableAllDeviceGroups()
  	{
 +		if (Main.dedServ)
 +			return;
- 		if (_engine != null) {
+ 		if (_engine != null)
+ 		{
  			_engine.DisableAllDeviceGroups();
- 		}
-@@ -656,6 +_,8 @@
+@@ -748,6 +_,8 @@
  	public static void Load()
  	{
  		_engine = Main.Chroma;

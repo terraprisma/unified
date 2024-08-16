@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/ReLogic/OS/Windows/WindowService.cs
-+++ decompiled/TerrariaUnified/ReLogic/OS/Windows/WindowService.cs
+--- sources/TerrariaBuildable/ReLogic/OS/Windows/WindowService.cs
++++ sources/TerrariaUnified/ReLogic/OS/Windows/WindowService.cs
 @@ -2,6 +_,7 @@
  using System.Drawing;
  using System.Runtime.InteropServices;
@@ -8,16 +8,16 @@
  
  namespace ReLogic.OS.Windows;
  
-@@ -10,7 +_,7 @@
- 	public float GetScaling()
+@@ -11,7 +_,7 @@
  	{
- 		try {
+ 		try
+ 		{
 -			IntPtr hdc = System.Drawing.Graphics.FromHwnd(IntPtr.Zero).GetHdc();
 +			IntPtr hdc = NativeMethods.GetDC(IntPtr.Zero);
  			int deviceCaps = NativeMethods.GetDeviceCaps(hdc, NativeMethods.DeviceCap.VertRes);
  			return (float)NativeMethods.GetDeviceCaps(hdc, NativeMethods.DeviceCap.DesktopVertRes) / (float)deviceCaps;
- 		} catch (Exception) {
-@@ -29,10 +_,13 @@
+ 		}
+@@ -33,10 +_,13 @@
  
  	public void SetUnicodeTitle(GameWindow window, string title)
  	{

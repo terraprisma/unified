@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailSDK", "..\decompiled\TerrariaBuildable\RailSDK\RailSDK.csproj", "{A368A7A8-BCE1-432D-9798-143346F932BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailSDK", "..\sources\TerrariaBuildable\RailSDK\RailSDK.csproj", "{A368A7A8-BCE1-432D-9798-143346F932BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelSeriesEngineWrapper", "..\decompiled\TerrariaBuildable\SteelSeriesEngineWrapper\SteelSeriesEngineWrapper.csproj", "{510F4EFD-E6BD-4C0F-9FE5-589F4DA1E6A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteelSeriesEngineWrapper", "..\sources\TerrariaBuildable\SteelSeriesEngineWrapper\SteelSeriesEngineWrapper.csproj", "{510F4EFD-E6BD-4C0F-9FE5-589F4DA1E6A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReLogic", "..\decompiled\TerrariaBuildable\ReLogic\ReLogic.csproj", "{FAC103EB-8A69-405B-85FA-A5C10CDA1FE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReLogic", "..\sources\TerrariaBuildable\ReLogic\ReLogic.csproj", "{FAC103EB-8A69-405B-85FA-A5C10CDA1FE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terraria", "..\decompiled\TerrariaBuildable\Terraria\Terraria.csproj", "{1661861A-2C0A-483E-8FA3-29CB0248F13D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terraria", "..\sources\TerrariaBuildable\Terraria\Terraria.csproj", "{1661861A-2C0A-483E-8FA3-29CB0248F13D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

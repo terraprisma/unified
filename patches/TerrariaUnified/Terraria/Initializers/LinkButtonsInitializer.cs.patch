@@ -1,5 +1,5 @@
---- decompiled/TerrariaBuildable/Terraria/Initializers/LinkButtonsInitializer.cs
-+++ decompiled/TerrariaUnified/Terraria/Initializers/LinkButtonsInitializer.cs
+--- sources/TerrariaBuildable/Terraria/Initializers/LinkButtonsInitializer.cs
++++ sources/TerrariaUnified/Terraria/Initializers/LinkButtonsInitializer.cs
 @@ -18,6 +_,9 @@
  		titleLinks.Add(MakeSimpleButton("TitleLinks.Forums", "https://forums.terraria.org/index.php", 4));
  		titleLinks.Add(MakeSimpleButton("TitleLinks.Merch", "https://terraria.org/store", 5));
