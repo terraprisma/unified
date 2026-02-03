@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Development has moved to [here](https://github.com/steviegt6/tModLoader/tree/1.4.5-unified) for the time being. This branch is updated to the latest version of 1.4.5.
+> Development has moved to [here](https://github.com/gold-meridian/terraria-unified) for the time being. This branch is updated to the latest version of 1.4.5.
 
 # unified-patches
 
